@@ -12,8 +12,21 @@
 // ** USE ONLY POINTER ARITHMATIC
 void selection_sort(int *arr, int size)
 {
+  int i, j, temp;
 
-  return;
+  for (i = 0; i < size - 1; i++)
+  {
+    for (j = i + 1; j < size; j++)
+    {
+      if (*(arr + i) > *(arr + j))
+      {
+        temp = *(arr + i);
+        *(arr + i) = *(arr + j);
+        *(arr + j) = temp;
+      }
+    }
+  }
+  return arr;
 }
 
 // Complete insertion_sort function to perform insertion sorting
@@ -22,10 +35,17 @@ void selection_sort(int *arr, int size)
 // ** USE ONLY POINTER ARITHMATIC
 void insertion_sort(int *arr, int size)
 {
+  int i, j, temp;
 
-  // ##### YOUR CODE HERE!!
-
-  return;
+  for (i = 1; i < ARR_SIZE; i++)
+  {
+    temp = *(arr + i);
+    for (j = i - 1; (j >= 0) && (temp < *(arr + j)); j--)
+    {
+      *(arr + j + 1) = temp;
+    }
+  }
+  return arr;
 }
 
 // DON'T MODIFY check_result FUNCTION
@@ -62,16 +82,16 @@ int main(void)
   // arr_sel will be used for selection sorting.
   // arr_ins will be used for insertion sorting.
   // ***** Complete ******
-  arr_sel = #### #;
-  arr_ins = #### #;
+  arr_sel = malloc(sizeof(int));
+  arr_ins = malloc(sizeof(int));
 
   // Check whether the memory allocation is success or not.
   // ***** Complete ******
-  if (#### #)
+  if (arr_ins && arr_sel)
   {
     // If arr_set and arr_ins is successfully allocated.
     // Open file numbers.txt as read mode & save file pointer to fp.
-    fp = #### #;
+    fp = fopen("numbers.txt", "r+");
     if (fp)
     {
       printf("---1. Read from data file!! \n");
@@ -81,11 +101,9 @@ int main(void)
       // Use fscanf, fgets to read a line from file.
       // ***** Complete ******
 
+      // Close fp
+      // ***** Complete ******
       #### #
-
-          // Close fp
-          // ***** Complete ******
-          #### #
 
           // Copy arr_sel to arr_ins
           // ***** Complete ******
