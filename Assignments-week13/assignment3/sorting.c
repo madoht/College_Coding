@@ -26,7 +26,7 @@ void selection_sort(int *arr, int size)
       }
     }
   }
-  return arr;
+  return;
 }
 
 // Complete insertion_sort function to perform insertion sorting
@@ -45,7 +45,7 @@ void insertion_sort(int *arr, int size)
       *(arr + j + 1) = temp;
     }
   }
-  return arr;
+  return;
 }
 
 // DON'T MODIFY check_result FUNCTION
@@ -91,7 +91,7 @@ int main(void)
   {
     // If arr_set and arr_ins is successfully allocated.
     // Open file numbers.txt as read mode & save file pointer to fp.
-    fp = fopen("numbers.txt", "r+");
+    fp = fopen("/Users/apple/Desktop/Assignments/Semester2/SW_Coding/Assignments-week13/assignment3/numbers.txt", "r");
     if (fp)
     {
       printf("---1. Read from data file!! \n");
@@ -100,14 +100,17 @@ int main(void)
       // Use for, while, do-while statement
       // Use fscanf, fgets to read a line from file.
       // ***** Complete ******
-
+      for (int i = 0; i < ARR_SIZE; i++)
+      {
+        fgets(arr_sel, "%c", fp);
+      }
       // Close fp
       // ***** Complete ******
-      #### #
+      fclose(fp);
 
-          // Copy arr_sel to arr_ins
-          // ***** Complete ******
-          memcpy(#### #);
+      // Copy arr_sel to arr_ins
+      // ***** Complete ******
+      memcpy(&arr_ins, &arr_sel, sizeof(int));
 
       printf("\n---2. Selection Sorting \n");
       start_t = clock();
@@ -133,13 +136,12 @@ int main(void)
 
   // Free arr_sel if that was successfully allocated
   // ***** Complete ******
-  if (#### #)
-    #### #;
+  if (arr_sel)
+    free(arr_sel);
 
   // Free arr_ins if that was successfully allocated
   // ***** Complete ******
-  if (#### #)
-    #### #;
-
+  if (arr_ins)
+    free(arr_ins);
   return 0;
 }
